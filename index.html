@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Systems & Solutions LLP - Power Quality Solutions for a Reliable Future</title>
+    <meta name="description" content="RS Systems & Solutions LLP - CE, ISO 9001:2015 and NABL certified power quality solutions: stabilizers, UPS, inverters, batteries, transformers and more.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryBlue: '#001a33',
+                        accentYellow: '#ffcc00',
+                        darkNavy: '#001122',
+                        electricBlue: '#0088cc',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:none;} }
+        @keyframes kenburns { from {transform:scale(1);} to {transform:scale(1.15);} }
+        @keyframes slideFade { 0%{opacity:0} 8%{opacity:1} 33%{opacity:1} 41%{opacity:0} 100%{opacity:0} }
+        @keyframes gridMove { from {background-position:0 0;} to {background-position:60px 60px;} }
+        @keyframes floaty { 0%,100% {transform:translateY(0);} 50% {transform:translateY(-8px);} }
+        @keyframes rise { 0% {transform:translateY(0) scale(.6); opacity:0;} 15% {opacity:.9;} 100% {transform:translateY(-520px) scale(1.2); opacity:0;} }
+        @keyframes pulseRing { 0% {box-shadow:0 0 0 0 rgba(255,204,0,.6);} 100% {box-shadow:0 0 0 16px rgba(255,204,0,0);} }
+        @keyframes zap { 0%,100% {opacity:1;} 45% {opacity:.4;} 50% {opacity:1;} 55% {opacity:.5;} }
+        @keyframes shine { from {background-position:-200% 0;} to {background-position:200% 0;} }
+        @keyframes dash { to {stroke-dashoffset:-24;} }
+        @keyframes blink { 0%,100% {opacity:1;} 50% {opacity:.25;} }
+        @keyframes sway { 0%,100% {transform:rotate(-14deg);} 50% {transform:rotate(14deg);} }
+        @keyframes grow { 0%,100% {transform:scaleX(.4);} 50% {transform:scaleX(1);} }
+        @keyframes dropfall { 0% {transform:translateY(-10px); opacity:0;} 30% {opacity:1;} 100% {transform:translateY(60px); opacity:0;} }
+        @keyframes beam { 0%,100% {opacity:.15;} 50% {opacity:.45;} }
+        @keyframes waveSlide { from {transform:translateX(0);} to {transform:translateX(-24px);} }
+        .hero-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; animation: slideFade 24s infinite; }
+        .hero-slide > div { position:absolute; inset:0; background:inherit; animation: kenburns 24s ease-in-out infinite alternate; }
+        .hero-base { position:absolute; inset:0; background: radial-gradient(circle at 70% 30%, #0088cc55, transparent 55%), linear-gradient(135deg,#001a33 0%,#003a66 55%,#0088cc 100%); }
+        .hero-grid { position:absolute; inset:0; background-image: linear-gradient(rgba(255,204,0,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,204,0,.12) 1px, transparent 1px); background-size:60px 60px; animation: gridMove 6s linear infinite; mask-image: radial-gradient(circle at center, #000 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, #000 30%, transparent 80%); }
+        .spark { position:absolute; bottom:-30px; color:#ffcc00; animation: rise linear infinite; text-shadow:0 0 12px #ffcc00; }
+        .hero-anim > * { opacity:0; animation: fadeUp .9s ease forwards; }
+        .hero-anim > *:nth-child(1){animation-delay:.2s} .hero-anim > *:nth-child(2){animation-delay:.5s}
+        .hero-anim > *:nth-child(3){animation-delay:.8s} .hero-anim > *:nth-child(4){animation-delay:1.1s}
+        .glow-text { background: linear-gradient(90deg,#fff,#ffcc00,#fff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation: shine 5s linear infinite; }
+        .logo-badge { animation: floaty 3.5s ease-in-out infinite; }
+        .pulse-ring { animation: pulseRing 1.8s infinite; }
+        .zap-icon i { animation: zap 2.5s infinite; }
+        .product-card { transition: transform .35s, box-shadow .35s; }
+        .product-card:hover { transform: translateY(-8px) rotate(-.6deg); box-shadow: 0 20px 34px rgba(0,26,51,.3); }
+        .prod-art { background: linear-gradient(135deg,#001a33,#00406e 60%,#0088cc); }
+        .prod-grid { background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size:22px 22px; }
+        .flow { animation: dash 1s linear infinite; }
+        .blink { animation: blink 1.6s ease-in-out infinite; }
+        .needle { transform-box: fill-box; transform-origin: 0% 100%; animation: sway 3s ease-in-out infinite; }
+        .grow { transform-box: fill-box; transform-origin: left; animation: grow 3s ease-in-out infinite; }
+        .drop { animation: dropfall 2s ease-in infinite; } .drop.d2 { animation-delay:1s; }
+        .beam { animation: beam 2.4s ease-in-out infinite; }
+        .wave { animation: waveSlide 1s linear infinite; }
+        .sheen { animation: blink 4s ease-in-out infinite; }
+        .btn-shine { background-image: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); background-size:200% 100%; }
+        .btn-shine:hover { animation: shine 1s linear; }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:#ffcc00; transition:width .3s; }
+        .nav-link:hover::after { width:100%; }
+        .reveal { opacity:0; transform:translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal.from-left { transform:translateX(-50px); }
+        .reveal.from-right { transform:translateX(50px); }
+        .reveal.zoom { transform:scale(.9); }
+        .reveal.in { opacity:1; transform:none; }
+        .about-card { transition: transform .3s, box-shadow .3s; } .about-card:hover { transform: translateY(-6px); box-shadow:0 14px 26px rgba(0,26,51,.15); }
+        .client-box { transition: transform .3s, box-shadow .3s; } .client-box:hover { transform: scale(1.08); box-shadow:0 10px 22px rgba(0,26,51,.18); }
+        #progress { position:fixed; top:0; left:0; height:3px; width:0; background:#ffcc00; z-index:100; }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation:none !important; transition:none !important; } .hero-anim > *, .reveal { opacity:1 !important; transform:none !important; } .hero-slide:first-of-type { opacity:1; } }
+        html { scroll-behavior: smooth; }
+        section[id] { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+    <div id="progress"></div>
+
+    <!-- Top Bar -->
+    <div class="bg-primaryBlue text-gray-300 text-xs sm:text-sm py-2 px-4 border-b border-blue-900">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="italic">"Real &amp; Sure" - CE &amp; ISO 9001:2015 Certified</div>
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
+                <a href="tel:+919004657056" class="flex items-center gap-2 hover:text-accentYellow">
+                    <i class="fa-solid fa-phone text-accentYellow"></i>
+                    <span>9004 657 056 / 9004 657 036</span>
+                </a>
+                <a href="mailto:info@rssystems.in" class="flex items-center gap-2 hover:text-accentYellow">
+                    <i class="fa-regular fa-envelope text-accentYellow"></i>
+                    <span>info@rssystems.in</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3">
+                <img data-logo alt="RS Systems logo" class="h-12 w-auto object-contain" onerror="this.nextElementSibling.classList.remove('hidden');this.remove()">
+                <div class="hidden logo-badge w-11 h-11 rounded-full bg-accentYellow flex items-center justify-center text-primaryBlue font-black text-lg shadow">
+                    RS
+                </div>
+                <div class="leading-tight">
+                    <span class="block text-xl font-black tracking-wider text-primaryBlue">RS SYSTEMS</span>
+                    <span class="block text-[11px] font-semibold tracking-[0.25em] text-electricBlue uppercase">Real &amp; Sure</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700 uppercase">
+                <a href="#home" class="nav-link text-blue-600">Home</a>
+                <a href="#about" class="nav-link hover:text-blue-600">About</a>
+                <a href="#services" class="nav-link hover:text-blue-600">Services</a>
+                <a href="#clients" class="nav-link hover:text-blue-600">Our Clients</a>
+                <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-primaryBlue text-2xl focus:outline-none" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-3 font-semibold text-sm uppercase">
+            <a href="#home" class="block text-blue-600 py-1">Home</a>
+            <a href="#about" class="block text-gray-700 py-1">About</a>
+            <a href="#services" class="block text-gray-700 py-1">Services</a>
+            <a href="#clients" class="block text-gray-700 py-1">Our Clients</a>
+            <a href="#contact" class="block text-gray-700 py-1">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative text-white min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="hero-base"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=80'); animation-delay:0s"><div></div></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1920&q=80'); animation-delay:8s"><div></div></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80'); animation-delay:16s"><div></div></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-primaryBlue/60 to-black/40"></div>
+        <div class="absolute inset-0 overflow-hidden pointer-events-none"><i class="fa-solid fa-bolt spark" style="left:5%;font-size:14px;animation-duration:7s;animation-delay:0.0s"></i><i class="fa-solid fa-bolt spark" style="left:13%;font-size:22px;animation-duration:9s;animation-delay:0.9s"></i><i class="fa-solid fa-bolt spark" style="left:21%;font-size:30px;animation-duration:11s;animation-delay:1.8s"></i><i class="fa-solid fa-bolt spark" style="left:29%;font-size:38px;animation-duration:13s;animation-delay:2.7s"></i><i class="fa-solid fa-bolt spark" style="left:37%;font-size:14px;animation-duration:15s;animation-delay:3.6s"></i><i class="fa-solid fa-bolt spark" style="left:45%;font-size:22px;animation-duration:7s;animation-delay:4.5s"></i><i class="fa-solid fa-bolt spark" style="left:53%;font-size:30px;animation-duration:9s;animation-delay:5.4s"></i><i class="fa-solid fa-bolt spark" style="left:61%;font-size:38px;animation-duration:11s;animation-delay:6.3s"></i><i class="fa-solid fa-bolt spark" style="left:69%;font-size:14px;animation-duration:13s;animation-delay:7.2s"></i><i class="fa-solid fa-bolt spark" style="left:77%;font-size:22px;animation-duration:15s;animation-delay:8.1s"></i><i class="fa-solid fa-bolt spark" style="left:85%;font-size:30px;animation-duration:7s;animation-delay:9.0s"></i><i class="fa-solid fa-bolt spark" style="left:93%;font-size:38px;animation-duration:9s;animation-delay:9.9s"></i></div>
+
+        <div class="hero-anim relative z-10 text-center px-4 py-16 max-w-4xl mx-auto">
+            <p class="text-accentYellow font-semibold tracking-widest uppercase text-sm mb-3">Welcome to RS Systems &amp; Solutions LLP!</p>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide uppercase mb-4 drop-shadow-md glow-text">
+                Power Quality Solutions for a Reliable Future
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-200 italic mb-8 font-light">
+                CE &amp; ISO-9001:2015 and NABL certified Indian company
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#about" class="btn-shine inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider px-8 py-3 rounded shadow-lg transition">
+                    Read More
+                </a>
+                <a href="#contact" class="btn-shine inline-block bg-accentYellow hover:bg-yellow-400 text-primaryBlue font-bold uppercase tracking-wider px-8 py-3 rounded shadow-lg transition">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yellow CTA Banner -->
+    <section class="bg-accentYellow py-6 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <h2 class="text-xl sm:text-2xl font-bold text-primaryBlue font-serif tracking-tight">
+                Looking for reliable, affordable power quality solutions? Contact us today.
+            </h2>
+            <a href="#contact" class="btn-shine bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase text-sm px-6 py-3 rounded shadow transition">
+                Get a Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="bg-primaryBlue py-16 px-4 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="border-2 border-accentYellow p-8 flex flex-col items-center text-center bg-darkNavy/40 rounded-sm shadow-xl">
+                    <div class="zap-icon text-blue-400 text-5xl mb-6 mt-2"><i class="fa-solid fa-award"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-accentYellow">CE, ISO 9001:2015 &amp; NABL Certified</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        We take pride in offering customized products and services that meet the highest industry standards.
+                    </p>
+                </div>
+                <div class="border-2 border-accentYellow p-8 flex flex-col items-center text-center bg-darkNavy/40 rounded-sm shadow-xl">
+                    <div class="zap-icon text-blue-400 text-5xl mb-6 mt-2"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-accentYellow">32 Years of Experience</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Led by Mr. N. S. Ramsing (Malustay), a highly experienced professional with 32 years in this industry.
+                    </p>
+                </div>
+                <div class="border-2 border-accentYellow p-8 flex flex-col items-center text-center bg-darkNavy/40 rounded-sm shadow-xl">
+                    <div class="zap-icon text-blue-400 text-5xl mb-6 mt-2"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-accentYellow">Nationwide Service Network</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Prompt assistance and support wherever you are: on-site consultations, installations and maintenance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3 class="text-2xl sm:text-3xl font-serif italic mb-3">Experience the RS Systems and Solutions difference!</h3>
+                <p class="text-cyan-400 text-xl font-semibold">Call Us 9004 657 056 / 9004 657 036</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-primaryBlue uppercase tracking-wide">About RS Systems &amp; Solutions</h2>
+                <div class="w-20 h-1 bg-accentYellow mx-auto mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
+                <div class="text-gray-600 leading-relaxed space-y-4">
+                    <p>
+                        At RS Systems and Solutions LLP, we are dedicated to providing cutting-edge power quality solutions that ensure a reliable and efficient electrical environment for our clients. As a CE &amp; ISO-9001:2015 and NABL certified Indian company, we take pride in offering customized products and services that meet the highest industry standards.
+                    </p>
+                    <p>
+                        Our backbone is Mr. N. S. Ramsing (Malustay), a highly experienced professional with 32 years in this industry. With his expertise and leadership, we ensure that we deliver exceptional quality products, maintain timely delivery, and provide excellent after-sales services. We are dedicated to continuously improving and incorporating updated technology to exceed our customers' requirements while maintaining competitive costs for their satisfaction.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="http://rssystems.in/images/imac.png" alt="RS Systems and Solutions" class="w-full max-w-md h-auto">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="about-card bg-gray-50 border-b-4 border-accentYellow p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-sliders text-electricBlue mr-2"></i>Customized Power Quality Products</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        We understand that every industry has unique power requirements. That's why we specialize in delivering tailored power conditioning products to cater to the specific needs of our clients. Our comprehensive range includes voltage stabilizers, power factor correction panels, isolation transformers, solar inverters, UPS systems, batteries, and much more. With our advanced solutions, we help you combat the challenges posed by harsh power supply conditions and enhance the performance of your electrical systems.
+                    </p>
+                </div>
+                <div class="about-card bg-gray-50 border-b-4 border-accentYellow p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-medal text-electricBlue mr-2"></i>Reliable Expertise and Experience</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Backed by over 32 years of industry experience, our team is led by Mr. N. S. Ramsing (Malustay), an esteemed professional with a deep understanding of the power quality domain. With his expertise and guidance, we ensure that our products and services meet the highest quality standards and exceed customer expectations.
+                    </p>
+                </div>
+                <div class="about-card bg-gray-50 border-b-4 border-accentYellow p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-handshake text-electricBlue mr-2"></i>Commitment to Customer Satisfaction</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        At RS Systems and Solutions, we prioritize customer satisfaction above all else. We believe in delivering not only top-notch products but also exceptional customer service. Our commitment to excellence is reflected in our focus on timely delivery, superior after-sales support, and competitive pricing. We value our clients and strive to build long-term relationships based on trust, reliability, and mutual success.
+                    </p>
+                </div>
+                <div class="about-card bg-gray-50 border-b-4 border-accentYellow p-6 shadow-sm">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3"><i class="fa-solid fa-industry text-electricBlue mr-2"></i>Servicing Diverse Industry Sectors</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Our power quality solutions cater to a wide array of sectors, including IT, communication, textiles, government projects, hospitals, dairy, banking, pharmaceuticals, laboratories, entertainment, and more. By understanding the unique challenges faced by each industry, we provide tailored solutions that optimize power usage, protect critical equipment, and ensure uninterrupted operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Nationwide Network + Products -->
+    <section id="services" class="py-16 px-4 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-primaryBlue uppercase tracking-wide">Nationwide Service Network</h2>
+                <div class="w-20 h-1 bg-accentYellow mx-auto mt-3"></div>
+            </div>
+            <div class="max-w-4xl mx-auto text-gray-600 leading-relaxed space-y-4 text-center mb-12">
+                <p>
+                    With an extensive service network across the country, we ensure prompt assistance and support to our clients wherever they are located. Our dedicated team of professionals is always ready to provide on-site consultations, installations, and maintenance services to keep your power systems running smoothly.
+                </p>
+                <p>
+                    We cater to a wide range of sectors, including IT, communication, textiles, government projects, hospitals, dairy sector, banking sectors, pharmaceuticals &amp; laboratories, entertainment industries, and more. With an excellent and efficient service network spanning across the country, we are well-equipped to serve our valued customers with utmost reliability.
+                </p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-primaryBlue text-center mb-8">Our Products at a Glance</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12" data-stagger>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><polygon points="40,40 160,40 148,110 28,110" fill="#0088cc" stroke="#ffffff" stroke-width="2"/><line x1="70.0" y1="40" x2="58.0" y2="110" stroke="#ffffff" stroke-opacity=".5"/><line x1="100.0" y1="40" x2="88.0" y2="110" stroke="#ffffff" stroke-opacity=".5"/><line x1="130.0" y1="40" x2="118.0" y2="110" stroke="#ffffff" stroke-opacity=".5"/><line x1="36.0" y1="63.33333333333333" x2="156.0" y2="63.33333333333333" stroke="#ffffff" stroke-opacity=".5"/><line x1="32.0" y1="86.66666666666666" x2="152.0" y2="86.66666666666666" stroke="#ffffff" stroke-opacity=".5"/><polygon class="sheen" points="40,40 160,40 148,110 28,110" fill="url(#sh)"/><line x1="130" y1="110" x2="130" y2="150" stroke="#ffcc00" stroke-width="4"/><rect x="200" y="70" width="130" height="110" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><rect x="215" y="85" width="100" height="36" rx="4" fill="#00264d"/><text x="265" y="110" text-anchor="middle" font-size="18" font-weight="700" fill="#ffcc00" font-family="monospace">MPPT</text><circle class="blink" cx="225" cy="145" r="4" fill="#ffcc00"/><circle class="blink" cx="245" cy="145" r="4" fill="#4ade80"/><circle class="blink" cx="265" cy="145" r="4" fill="#0088cc"/><rect x="215" y="160" width="100" height="6" rx="3" fill="#00264d" fill-opacity=".4"/><path d="M130 150 H200" stroke="#ffcc00" stroke-width="4" fill="none" stroke-dasharray="6 6" class="flow"/><path class="blink" transform="translate(340 60) scale(0.9)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-solar-panel"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">01</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Solar Off-grid Inverter with MPPT/MPPT Charger</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><polygon points="30,30 160,30 148,105 18,105" fill="#0088cc" stroke="#ffffff" stroke-width="2"/><line x1="62.5" y1="30" x2="50.5" y2="105" stroke="#ffffff" stroke-opacity=".5"/><line x1="95.0" y1="30" x2="83.0" y2="105" stroke="#ffffff" stroke-opacity=".5"/><line x1="127.5" y1="30" x2="115.5" y2="105" stroke="#ffffff" stroke-opacity=".5"/><line x1="26.0" y1="55.0" x2="156.0" y2="55.0" stroke="#ffffff" stroke-opacity=".5"/><line x1="22.0" y1="80.0" x2="152.0" y2="80.0" stroke="#ffffff" stroke-opacity=".5"/><polygon class="sheen" points="30,30 160,30 148,105 18,105" fill="url(#sh)"/><polygon points="180,30 310,30 298,105 168,105" fill="#0088cc" stroke="#ffffff" stroke-width="2"/><line x1="212.5" y1="30" x2="200.5" y2="105" stroke="#ffffff" stroke-opacity=".5"/><line x1="245.0" y1="30" x2="233.0" y2="105" stroke="#ffffff" stroke-opacity=".5"/><line x1="277.5" y1="30" x2="265.5" y2="105" stroke="#ffffff" stroke-opacity=".5"/><line x1="176.0" y1="55.0" x2="306.0" y2="55.0" stroke="#ffffff" stroke-opacity=".5"/><line x1="172.0" y1="80.0" x2="302.0" y2="80.0" stroke="#ffffff" stroke-opacity=".5"/><polygon class="sheen" points="180,30 310,30 298,105 168,105" fill="url(#sh)"/><path d="M100 115 V165 H250 V115" stroke="#ffcc00" stroke-width="4" fill="none" stroke-dasharray="6 6" class="flow"/><rect x="150" y="150" width="100" height="60" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><text x="200" y="188" text-anchor="middle" font-size="20" font-weight="800" fill="#00264d" font-family="sans-serif">ON-GRID</text><path d="M250 180 H330" stroke="#ffcc00" stroke-width="4" stroke-dasharray="6 6" class="flow"/><path class="blink" transform="translate(335 160) scale(0.9)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-sun"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">02</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Solar On-Grid Inverter</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="120" y="25" width="160" height="190" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><rect x="138" y="42" width="124" height="46" rx="5" fill="#00264d"/><path class="wave" d="M148 65 q12 -20 24 0 t24 0 t24 0 t24 0" stroke="#ffcc00" stroke-width="3" fill="none"/><rect x="138" y="105" width="124" height="6" rx="3" fill="#00264d" fill-opacity=".35"/><rect x="138" y="119" width="124" height="6" rx="3" fill="#00264d" fill-opacity=".35"/><rect x="138" y="133" width="124" height="6" rx="3" fill="#00264d" fill-opacity=".35"/><rect x="138" y="147" width="124" height="6" rx="3" fill="#00264d" fill-opacity=".35"/><circle class="blink" cx="150" cy="180" r="4" fill="#ffcc00"/><circle class="blink" cx="170" cy="180" r="4" fill="#4ade80"/><rect x="205" y="172" width="45" height="16" rx="4" fill="#ffcc00"/><path class="blink" transform="translate(300 70) scale(1.2)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-wave-square"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">03</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Static Inverter / Sinewave Inverter / Lift UPS Systems</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="130" y="20" width="140" height="200" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><rect x="147" y="38" width="106" height="52" rx="5" fill="#00264d"/><text x="200" y="74" text-anchor="middle" font-size="24" font-weight="800" fill="#4ade80" font-family="monospace">230V</text><text x="200" y="125" text-anchor="middle" font-size="16" font-weight="800" fill="#00264d" font-family="sans-serif">ONLINE UPS</text><circle class="blink" cx="160" cy="150" r="4" fill="#ffcc00"/><circle class="blink" cx="180" cy="150" r="4" fill="#4ade80"/><circle class="blink" cx="200" cy="150" r="4" fill="#0088cc"/><rect x="150" y="170" width="100" height="30" rx="4" fill="#00264d" fill-opacity=".35"/><path d="M70 120 H125 M275 120 H330" stroke="#ffcc00" stroke-width="4" stroke-dasharray="6 6" class="flow"/><path class="blink" transform="translate(40 95) scale(1)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/><path class="blink" transform="translate(335 95) scale(1)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-plug-circle-bolt"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">04</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Online UPS Systems</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="90" y="40" width="220" height="150" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><circle cx="160" cy="100" r="22" fill="#00264d" stroke="#ffcc00" stroke-width="3"/><line class="needle" x1="160" y1="100" x2="176" y2="92" stroke="#ffcc00" stroke-width="3" stroke-linecap="round"/><circle cx="240" cy="100" r="22" fill="#00264d" stroke="#ffcc00" stroke-width="3"/><line class="needle" x1="240" y1="100" x2="256" y2="92" stroke="#ffcc00" stroke-width="3" stroke-linecap="round"/><text x="160" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#00264d" font-family="sans-serif">INPUT</text><text x="240" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#00264d" font-family="sans-serif">OUTPUT</text><rect x="120" y="165" width="160" height="10" rx="5" fill="#00264d"/><rect class="grow" x="120" y="165" width="110" height="10" rx="5" fill="#ffcc00"/><path class="blink" transform="translate(330 80) scale(1)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/><rect x="110" y="190" width="14" height="22" fill="#ffcc00"/><rect x="276" y="190" width="14" height="22" fill="#ffcc00"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-gauge-high"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">05</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Static Stabilizer / Servo Voltage Stabilizer</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="100" y="70" width="200" height="120" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><rect x="125" y="105" width="30" height="55" rx="4" fill="#0088cc" stroke="#ffffff" stroke-width="1.5"/><rect x="163" y="105" width="30" height="55" rx="4" fill="#0088cc" stroke="#ffffff" stroke-width="1.5"/><rect x="201" y="105" width="30" height="55" rx="4" fill="#0088cc" stroke="#ffffff" stroke-width="1.5"/><rect x="239" y="105" width="30" height="55" rx="4" fill="#0088cc" stroke="#ffffff" stroke-width="1.5"/><rect x="130" y="52" width="26" height="18" rx="3" fill="#ffcc00"/><rect x="244" y="52" width="26" height="18" rx="3" fill="#ffcc00"/><text x="143" y="46" text-anchor="middle" font-size="20" font-weight="900" fill="#ffffff">+</text><text x="257" y="46" text-anchor="middle" font-size="20" font-weight="900" fill="#ffffff">−</text><path class="blink" transform="translate(185 95) scale(0.9)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/><rect class="grow" x="110" y="175" width="120" height="8" rx="4" fill="#4ade80"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-car-battery"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">06</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">SMF / Tubular / Solar Batteries / Lithium Batteries</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="196" y="60" width="8" height="150" fill="#ffffff"/><path d="M200 62 Q200 40 235 40 H290" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round"/><rect x="270" y="38" width="55" height="16" rx="8" fill="#ffcc00"/><path class="beam" d="M280 54 L255 210 H345 L318 54 Z" fill="#ffcc00" fill-opacity=".25"/><g transform="translate(60 40)"><polygon points="30,0 120,0 108,50 18,50" fill="#0088cc" stroke="#ffffff" stroke-width="2"/><line x1="52.5" y1="0" x2="40.5" y2="50" stroke="#ffffff" stroke-opacity=".5"/><line x1="75.0" y1="0" x2="63.0" y2="50" stroke="#ffffff" stroke-opacity=".5"/><line x1="97.5" y1="0" x2="85.5" y2="50" stroke="#ffffff" stroke-opacity=".5"/><line x1="26.0" y1="16.666666666666668" x2="116.0" y2="16.666666666666668" stroke="#ffffff" stroke-opacity=".5"/><line x1="22.0" y1="33.333333333333336" x2="112.0" y2="33.333333333333336" stroke="#ffffff" stroke-opacity=".5"/><polygon class="sheen" points="30,0 120,0 108,50 18,50" fill="url(#sh)"/></g><rect x="170" y="205" width="60" height="10" rx="3" fill="#ffffff"/><circle cx="85" cy="150" r="22" fill="#ffcc00" class="blink"/><g stroke="#ffcc00" stroke-width="3" stroke-linecap="round"><path d="M85 112V122M85 178V188M47 150H57M113 150H123M58 123l7 7M105 170l7 7M112 123l-7 7M58 177l7-7"/></g></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-lightbulb"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">07</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Solar Water Heater / Solar Water Pumps / Solar Street Lights</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="90" y="40" width="220" height="150" rx="6" fill="none" stroke="#ffffff" stroke-width="12"/><rect x="190" y="40" width="20" height="150" fill="#ffffff"/><ellipse cx="150" cy="70" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="150" cy="88" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="150" cy="106" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="150" cy="124" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="150" cy="142" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="150" cy="160" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="150" cy="178" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="70" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="88" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="106" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="124" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="142" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="160" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><ellipse cx="250" cy="178" rx="34" ry="9" fill="none" stroke="#ffcc00" stroke-width="5"/><path d="M150 30 V0 M250 30 V0" stroke="#ffcc00" stroke-width="4"/><rect x="100" y="198" width="200" height="14" rx="4" fill="#ffffff" fill-opacity=".8"/><path class="blink" transform="translate(188 100) scale(0.8)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/><text x="200" y="232" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="sans-serif">UP TO 25 KVA</text></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-bolt"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">08</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Isolation Transformer / CVT - 1Ø and 3Ø up to 25KVA</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="120" y="50" width="140" height="110" rx="8" fill="#ffffff" fill-opacity="1" stroke="#ffcc00" stroke-width="2.5"/><rect x="136" y="66" width="108" height="34" rx="4" fill="#00264d"/><rect class="grow" x="146" y="76" width="70" height="14" rx="3" fill="#4ade80"/><circle class="blink" cx="150" cy="128" r="4" fill="#ffcc00"/><circle class="blink" cx="170" cy="128" r="4" fill="#0088cc"/><rect x="196" y="118" width="48" height="20" rx="4" fill="#ffcc00"/><path d="M260 105 C310 105 300 190 340 190" stroke="#ffcc00" stroke-width="6" fill="none" stroke-linecap="round" class="flow" stroke-dasharray="1 0"/><rect x="335" y="178" width="38" height="26" rx="4" fill="#ffffff"/><rect x="373" y="186" width="5" height="10" fill="#ffffff"/><rect x="340" y="183" width="14" height="16" rx="2" fill="#4ade80"/><path class="blink" transform="translate(70 70) scale(1)" d="M10 0 L0 22 H9 L5 40 L20 15 H11 Z" fill="#ffcc00"/></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-battery-full"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">09</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Battery Charger</h4>
+                </div>
+                <div class="product-card group bg-white border-b-4 border-accentYellow shadow-md overflow-hidden rounded-md">
+                    <div class="prod-art relative h-44 overflow-hidden">
+                        <div class="absolute inset-0 prod-grid"></div>
+                        <div class="relative h-full p-3 transition duration-500 group-hover:scale-110"><svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><rect x="90" y="60" width="90" height="140" rx="22" fill="#ffffff" stroke="#ffcc00" stroke-width="3"/><rect x="100" y="120" width="70" height="70" rx="12" fill="#0088cc" fill-opacity=".7"/><rect x="200" y="90" width="70" height="110" rx="18" fill="#ffffff" stroke="#ffcc00" stroke-width="3"/><rect x="208" y="140" width="54" height="52" rx="10" fill="#ffcc00" fill-opacity=".8"/><path d="M180 110 H200" stroke="#ffcc00" stroke-width="5"/><path class="drop" d="M310 70 q-14 22 0 32 q14 -10 0 -32z" fill="#0088cc" stroke="#ffffff" stroke-width="2"/><path class="drop d2" d="M340 100 q-10 16 0 24 q10 -8 0 -24z" fill="#0088cc" stroke="#ffffff" stroke-width="2"/><text x="135" y="95" text-anchor="middle" font-size="12" font-weight="800" fill="#00264d" font-family="sans-serif">SOFT</text></svg></div>
+                        <span class="absolute top-2 left-2 w-8 h-8 rounded-full bg-accentYellow text-primaryBlue flex items-center justify-center text-sm shadow"><i class="fa-solid fa-droplet"></i></span>
+                        <span class="absolute top-2 right-2 text-[10px] font-bold text-white/70 tracking-widest">010</span>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm p-4 text-center">Water Softener and many more...</h4>
+                </div>
+            </div>
+
+            <div class="bg-primaryBlue text-white rounded-sm p-8 text-center border-2 border-accentYellow">
+                <p class="mb-3 leading-relaxed">
+                    We also provide <span class="text-accentYellow font-bold">Annual Maintenance Contracts (AMC)</span> for all our products, ensuring their optimal performance and longevity.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Our key objective is to focus on the development of products that are relevant, affordable, easy-to-maintain, and offer true value-for-money to our end-users.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section id="clients" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-primaryBlue uppercase tracking-wide">Our Clients</h2>
+                <div class="w-20 h-1 bg-accentYellow mx-auto mt-3"></div>
+            </div>
+            <p class="max-w-4xl mx-auto text-center text-gray-600 leading-relaxed mb-10">
+                At RS Systems and Solutions LLP, we are proud to have a diverse client list that includes esteemed organizations from various sectors. Here are some of our valued clients:
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center mb-10">
+                <div class="client-box border border-gray-200 rounded-sm p-4 flex items-center justify-center h-28 bg-white shadow-sm"><img src="http://rssystems.in/images/logos/1.png" alt="Client 1" class="max-h-20 max-w-full object-contain"></div>
+                <div class="client-box border border-gray-200 rounded-sm p-4 flex items-center justify-center h-28 bg-white shadow-sm"><img src="http://rssystems.in/images/logos/2.png" alt="Client 2" class="max-h-20 max-w-full object-contain"></div>
+                <div class="client-box border border-gray-200 rounded-sm p-4 flex items-center justify-center h-28 bg-white shadow-sm"><img src="http://rssystems.in/images/logos/3.png" alt="Client 3" class="max-h-20 max-w-full object-contain"></div>
+                <div class="client-box border border-gray-200 rounded-sm p-4 flex items-center justify-center h-28 bg-white shadow-sm"><img src="http://rssystems.in/images/logos/4.png" alt="Client 4" class="max-h-20 max-w-full object-contain"></div>
+                <div class="client-box border border-gray-200 rounded-sm p-4 flex items-center justify-center h-28 bg-white shadow-sm"><img src="http://rssystems.in/images/logos/5.png" alt="Client 5" class="max-h-20 max-w-full object-contain"></div>
+                <div class="client-box border border-gray-200 rounded-sm p-4 flex items-center justify-center h-28 bg-white shadow-sm"><img src="http://rssystems.in/images/logos/6.png" alt="Client 6" class="max-h-20 max-w-full object-contain"></div>
+            </div>
+            <p class="max-w-3xl mx-auto text-center text-gray-700 font-medium leading-relaxed">
+                Experience the RS Systems and Solutions difference in power quality solutions. Contact us today to discuss your specific requirements, receive expert guidance, and find the perfect solution for your business.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-primaryBlue text-gray-300 pt-16 pb-8 px-4 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <img data-logo alt="RS Systems logo" class="h-12 w-auto object-contain bg-white rounded p-1" onerror="this.nextElementSibling.classList.remove('hidden');this.remove()">
+                    <div class="hidden w-10 h-10 rounded-full bg-accentYellow flex items-center justify-center text-primaryBlue font-black text-base shadow">RS</div>
+                    <div class="leading-tight">
+                        <span class="block text-lg font-black tracking-wider text-white">RS SYSTEMS</span>
+                        <span class="block text-[10px] font-semibold tracking-[0.25em] text-accentYellow uppercase">Real &amp; Sure</span>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                    RS Systems and Solutions LLP provides cutting-edge power quality solutions that ensure a reliable and efficient electrical environment. CE &amp; ISO-9001:2015 and NABL certified.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm tracking-wide uppercase mb-4">Discover</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#home" class="hover:text-accentYellow transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-accentYellow transition">About</a></li>
+                    <li><a href="#services" class="hover:text-accentYellow transition">Services</a></li>
+                    <li><a href="#clients" class="hover:text-accentYellow transition">Our Clients</a></li>
+                    <li><a href="#contact" class="hover:text-accentYellow transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm tracking-wide uppercase mb-4">Contacts</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-house text-accentYellow mt-1"></i>
+                        <span><strong class="text-gray-200">Regd. Office:</strong> B-206, Walchand Plaza, Geeta Nagar, Opp. Kapolwadi, Bhayander (West), Thane-4010007</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-accentYellow mt-1"></i>
+                        <span><strong class="text-gray-200">Branch Office:</strong> C-302, Blue Bell, Karande Mala, Tarabai Park, Kolhapur</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-accentYellow"></i>
+                        <span>Call us: <a href="tel:+919004657056" class="hover:text-accentYellow">9004 657 056</a> / <a href="tel:+919004657036" class="hover:text-accentYellow">9004 657 036</a></span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-accentYellow"></i>
+                        <span><a href="mailto:sales@rssystems.in" class="hover:text-accentYellow">sales@rssystems.in</a> / <a href="mailto:info@rssystems.in" class="hover:text-accentYellow">info@rssystems.in</a></span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-map text-accentYellow"></i>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tarabai+Park+Kolhapur" target="_blank" rel="noopener" class="hover:text-accentYellow underline">Locate Us on Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-blue-900/60 flex flex-col items-center gap-3 text-center">
+            <a href="https://wa.me/919004657056" target="_blank" rel="noopener" class="pulse-ring inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-4 py-2 rounded transition">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+            <p class="text-xs text-gray-500">&copy; RS Systems &amp; Solutions LLP - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Logo file: change this one line if the logo lives at a different path
+        const LOGO_URL = 'http://rssystems.in/images/logo.png';
+        document.querySelectorAll('img[data-logo]').forEach(i => i.src = LOGO_URL);
+    </script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        const tag = (el, cls, delay) => { el.classList.add('reveal'); if (cls) el.classList.add(cls); el.style.transitionDelay = (delay || 0) + 'ms'; };
+        document.querySelectorAll('section:not(#home) h2, section:not(#home) h3, section:not(#home) p').forEach(el => tag(el));
+        document.querySelectorAll('section > div > .grid, section > div > div > .grid, footer > .grid').forEach(grid => {
+            [...grid.children].forEach((c, i) => tag(c, i % 2 ? 'from-right' : 'from-left', (i % 5) * 120));
+        });
+        document.querySelectorAll('[data-stagger]').forEach(grid => {
+            [...grid.children].forEach((c, i) => { c.classList.remove('from-left','from-right'); tag(c, 'zoom', (i % 5) * 110); });
+        });
+        document.querySelectorAll('#clients .grid > div').forEach((c, i) => { c.classList.remove('from-left','from-right'); tag(c, 'zoom', i * 100); });
+        document.querySelectorAll('#about img').forEach(el => tag(el, 'zoom'));
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        const bar = document.getElementById('progress');
+        const header = document.querySelector('header');
+        addEventListener('scroll', () => {
+            const h = document.documentElement;
+            bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+            header.classList.toggle('shadow-lg', h.scrollTop > 20);
+        }, { passive: true });
+    </script>
+</body>
+</html>
